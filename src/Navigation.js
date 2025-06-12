@@ -26,11 +26,11 @@ export default function Navigation(){
             <div className='navLinks row justify-content-end t-5 position-absolute '>
               {open && (
                 <div className= 'navstuff text-end bg-body-tertiary shadow'>
-                    <CloseIcon onClick={handleClose}/>
-                    <Link to='/' className='d-block text-start text-start'><HomeIcon/> Home</Link>
-                    <Link to='/profile' className='d-block text-start'><PersonOutlineIcon/>Profile </Link>
-                    <Link to='/Bookings' className='d-block text-start'><ListAltIcon/> Bookings</Link>
-                    <Link to='/Book' className = 'd-block text-start'><CalendarMonthIcon/>Make a Booking</Link>
+                    <CloseIcon onClick={handleClose} />
+                    <Link to='/' className='d-block text-start text-start mb-2 mt-5'><HomeIcon/> Home</Link>
+                    <Link to='/profile' className='d-block text-start mb-2'><PersonOutlineIcon/>Profile </Link>
+                    <Link to='/Bookings' className='d-block text-start mb-2'><ListAltIcon/> Bookings</Link>
+                    <Link to='/Book' className = 'd-block text-start mb-2'><CalendarMonthIcon/>Make a Booking</Link>
               </div>)}
               {!open && (<div className='text-end'>
                 <MenuIcon onClick={handleOpen}/>
