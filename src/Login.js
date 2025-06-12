@@ -1,6 +1,8 @@
 import 'bootstrap/dist/css/bootstrap.css';
 import {Link} from 'react-router-dom';
 import {useState} from 'react';
+import './Login.css';
+
 
 
 export default function Login(){
@@ -15,8 +17,8 @@ export default function Login(){
         e.preventDefault();
     }
     return (
-        <div className='row form align-items-center'>
-            <div className='container form-container p-5 shadow P-3 bg-body-tertiary rounded'>
+        <div className='row form2 align-items-center'>
+            <div className='container form-container2 p-5 shadow P-3 bg-body-tertiary rounded'>
                 <h1 className='text-center mb-5'>Log In</h1>
                 <form onSubmit={handleSubmit}>
                     <input type='email' value={formData.email} placeholder='Email Address' name='email' onChange={handleChange}/>
