@@ -17,14 +17,14 @@ export default function Bookings(){
             status:'Not Done'
         }
     ];
-    /*if(data.length !==0){
+    if(data.length ===0){
         return(
             <div class='container'>
                 <h1 class='text-center'>No Bookings Found!</h1>
                 <p class='text-center'>Please make a booking or contact support for assistance</p>
             </div>
         )
-    }else{*/
+    }else{
         return (
             <div class='container pt-4'>
                 <h1 class='text-center mb-4'>Your Bookings</h1>
@@ -51,5 +51,5 @@ export default function Bookings(){
 
             </div>
         )
-    //}
+    }
 }
