@@ -3,9 +3,18 @@ import {Link} from 'react-router-dom';
 import {useState} from 'react';
 import './Login.css';
 
-
-
 export default function Login(){
+    const users = [
+    {
+        email:"eurekaripfumelo@gmail.com",
+        password:"Eureka@031"
+    },
+    {
+        email:"vonnyvonnie8@gmail.com",
+        password:"Vonny2006"
+    }
+    ];
+    console.log(users);
     const initialData = {email:"",password:""};
     const [formData,setFormData] = useState(initialData);
 
@@ -15,7 +24,9 @@ export default function Login(){
 
     const handleSubmit = (e) =>{
         e.preventDefault();
+        
     }
+
     return (
         <div className='row form2 align-items-center'>
             <div className='container form-container2 p-5 shadow P-3 bg-body-tertiary rounded'>

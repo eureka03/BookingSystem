@@ -1,0 +1,21 @@
+.navstuff{
+    
+    width:200px;
+    
+}
+.navLinks{
+    width:20%;
+    height:200px;
+}
+.navLinks a{
+    
+    text-decoration:none;
+
+}
+
+.notOpen{
+    display:none;
+}
+.open{
+    display:block;
+}

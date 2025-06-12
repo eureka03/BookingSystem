@@ -1,5 +1,5 @@
+import 'bootstrap/dist/css/bootstrap.css';
 export default function Bookings(){
-
     const data = [
         {
             name:"Eureka",
@@ -19,23 +19,23 @@ export default function Bookings(){
     ];
     if(data.length ===0){
         return(
-            <div class='container'>
-                <h1 class='text-center'>No Bookings Found!</h1>
-                <p class='text-center'>Please make a booking or contact support for assistance</p>
+            <div className='container'>
+                <h1 className='text-center'>No Bookings Found!</h1>
+                <p className='text-center'>Please make a booking or contact support for assistance</p>
             </div>
         )
     }else{
         return (
-            <div class='container pt-4'>
-                <h1 class='text-center mb-4'>Your Bookings</h1>
-                <div class='row justify-content-center Headings '>
+            <div className='container pt-4'>
+                <h1 className='text-center mb-4'>Your Bookings</h1>
+                <div className='row justify-content-center Headings '>
                     <div className='col-md-3 text-bg-primary me-3 text-center'>FullName</div>
-                    <div class='col-md-3 text-bg-primary me-3 text-center'>Date</div>
-                    <div class='col-md-3 text-bg-primary me-3 text-center'>Status</div>
+                    <div className='col-md-3 text-bg-primary me-3 text-center'>Date</div>
+                    <div className='col-md-3 text-bg-primary me-3 text-center'>Status</div>
                 </div>
                 
                     {data.map((book)=>
-                        <div class='Bookings row justify-content-center'>
+                        <div className='Bookings row justify-content-center'>
                             <div className='col-md-3 text-bg-info me-3 text-center mt-3'>
                                 {book.name}
                             </div>

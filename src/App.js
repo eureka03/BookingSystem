@@ -5,10 +5,12 @@ import SignUp from './SignUp';
 import Login from './Login';
 import Bookings from './Bookings';
 import Book from './Book';
+import Navigation from './Navigation';
 
 function App() {
   return (
     <BrowserRouter>
+      <Navigation/>
       <Routes>
         <Route path='/' element={<Homepage/>}/>
         <Route path='/SignUp' element={<SignUp/>}/>
