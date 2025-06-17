@@ -7,25 +7,45 @@ import './Signup.css';
 export default function SignUp(){
     const initialData = {Name:"",Email:"",Password:""};
     const [formData,setFormData] = useState(initialData);
+    const [errors,setErrors] = useState({});
+    
 
     const handleChange = (e)=>{
         setFormData({...formData,[e.target.name]:e.target.value});
+        //
     }
 
     async function handleSubmit(e){
         e.preventDefault();
-        try{
-            const result = fetch('http://localhost:5000/SignUp',{
-                method:'POST',
-                headers:{'Content-Type':'application/json'},
-                body:JSON.stringify(formData)
-            });
-            const data = await result.json();
-            console.log(data);
-        }catch(error){
-            console.error(error);
+        validateInputs();
+        if(Object.keys(errors).length===0){
+            setFormData(initialData);
         }
-        setFormData(initialData);
+    }
+
+    function validateInputs(){
+        const validateErrors = {}
+        if(formData.name.trim() === ''){
+            validateErrors.name = 'Username is required';
+        }else{
+            validateErrors.name ='';
+        }
+
+        if(formData.password.trim() === ''){
+            validateErrors.password = 'Password is required';
+        }else if(!formData.password.length>=8){
+            validateErrors.password = 'Password needs to at least be 8 characters';
+        }else{
+            validateErrors.password ='';
+        }
+
+        if(formData.email.trim() === ''){
+            validateErrors.email = 'Email is required';
+        }else{
+            validateErrors.email = '';
+        }
+
+        setErrors(validateErrors);
     }
 
     return (
@@ -33,9 +53,24 @@ export default function SignUp(){
             <div className='container form-container p-5 shadow bg-body-tertiary rounded'>
                 <h1 className='text-center mb-5'>Sign Up</h1>
                 <form onSubmit={handleSubmit}>
-                    <input type='text' value={formData.Name} placeholder='Username' name='Name' onChange={handleChange}/>
-                    <input type='email' value={formData.Email} placeholder='Email Address' name='Email' onChange={handleChange}/>
-                    <input type='password' value={formData.Password} placeholder='Password' name='Password' onChange={handleChange}/>
+                    
+                    <div className='input-control' >
+                        <label for='username'>Username</label>
+                        <input type='text'  value={formData.name} id='username' name='name' onChange={handleChange}/>
+                    </div>
+                    <div className='error-message'>{errors.name}</div>
+                    <div className='input-control'>
+                        <label for='email'>Email Address</label>
+                        <input type='email' value={formData.email}  id='email' name='email' onChange={handleChange} />
+                        
+                    </div>
+                    <div className='error-message'>{errors.email}</div>
+                    <div className='input-control'>
+                        <label for='password'>Password</label>
+                        <input type='password' value={formData.password}  id='password' name='password' onChange={handleChange} />
+                        
+                    </div>
+                    <div className='error-message'>{errors.password}</div>
                     <button type='submit' className='btn btn-primary mt-4'>Sign Up</button>
                 </form>
                 <div className='alternative mt-4'>

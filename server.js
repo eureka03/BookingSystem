@@ -38,4 +38,8 @@ app.post('/SignUp',(req,res)=>{
 
 app.listen(5000,()=>{
     console.log('Server running on http://localhost:5000');
+<<<<<<< HEAD
 })
+=======
+});
+>>>>>>> 1b7be4d417444050550feb2483b0a64e12a84f22
