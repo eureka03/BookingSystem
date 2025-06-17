@@ -12,7 +12,7 @@ import ReviewsIcon from '@mui/icons-material/Reviews';
 
 export default function Navigation(){
 
-    const [open,setOpen] = useState(true);
+    const [open,setOpen] = useState(false);
     
     const handleOpen = () => {
         setOpen(!open);

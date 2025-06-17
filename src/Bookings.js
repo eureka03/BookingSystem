@@ -1,23 +1,20 @@
 import 'bootstrap/dist/css/bootstrap.css';
+import {useState,useEffect} from 'react';
+
+
 export default function Bookings(){
-    const data = [
-        {
-            name:"Eureka",
-            date:'10/09/2025',
-            status:"Not Done"
-        },
-        {
-            name:"Angel",
-            date:'02/02/2025',
-            status:'done'
-        },
-        {
-            name:'Una',
-            date:'15/06/2025',
-            status:'Not Done'
-        }
-    ];
-    if(data.length ===0){
+
+    const [bookings,setBookings] = useState([]);
+
+    useEffect(() => {
+        fetch('http://localhost:5000/Bookings')
+          .then(res  => res.json())
+          .then(data => setBookings(data))
+          .catch(err => console.error(err));
+      },[]);
+
+
+    if(bookings.length ===0){
         return(
             <div className='container'>
                 <h1 className='text-center'>No Bookings Found!</h1>
@@ -34,16 +31,16 @@ export default function Bookings(){
                     <div className='col-md-3 text-bg-primary me-3 text-center'>Status</div>
                 </div>
                 
-                    {data.map((book)=>
+                    {bookings.map((book)=>
                         <div className='Bookings row justify-content-center'>
                             <div className='col-md-3 text-bg-info me-3 text-center mt-3'>
-                                {book.name}
+                                {book.Name}
                             </div>
                             <div className='col-md-3 text-bg-info me-3 text-center mt-3'>
-                                {book.date}
+                                {book.Date}
                             </div>
                             <div className='col-md-3 text-bg-info me-3 text-center mt-3'>
-                                {book.status}
+                                {book.Status}
                             </div>
                         </div>
                    )}                       
