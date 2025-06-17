@@ -17,3 +17,11 @@ form input{
     height:50px;
     padding:10px;
 }
+
+.error{
+    border:2px solid red;
+}
+
+form input:focus{
+    outline:0;
+}
