@@ -18,26 +18,38 @@ export default function SignUp(){
     const handleSubmit = (e) =>{
         e.preventDefault();
         validateInputs();
+        if(Object.keys(errors).length===0){
+            setFormData(initialData);
+        }
     }
 
     function validateInputs(){
         const validateErrors = {}
         if(formData.name.trim() === ''){
             validateErrors.name = 'Username is required';
+        }else{
+            validateErrors.name ='';
         }
 
         if(formData.password.trim() === ''){
             validateErrors.password = 'Password is required';
         }else if(!formData.password.length>=8){
             validateErrors.password = 'Password needs to at least be 8 characters';
+        }else{
+            validateErrors.password ='';
         }
 
         if(formData.email.trim() === ''){
             validateErrors.email = 'Email is required';
+        }else{
+            validateErrors.email = '';
         }
 
-
         setErrors(validateErrors);
+
+        
+        
+
     }
     return (
         <div classNamme=' row form align-items-center'>
