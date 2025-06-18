@@ -5,7 +5,7 @@ import './Signup.css';
 
 
 export default function SignUp(){
-    const initialData = {name:"",email:"",password:""};
+    const initialData = {Name:"",Email:"",Password:""};
     const [formData,setFormData] = useState(initialData);
     const [errors,setErrors] = useState({});
     
@@ -15,7 +15,7 @@ export default function SignUp(){
         //
     }
 
-    const handleSubmit = (e) =>{
+    async function handleSubmit(e){
         e.preventDefault();
         validateInputs();
         if(Object.keys(errors).length===0){
@@ -46,11 +46,8 @@ export default function SignUp(){
         }
 
         setErrors(validateErrors);
-
-        
-        
-
     }
+
     return (
         <div classNamme=' row form align-items-center'>
             <div className='container form-container p-5 shadow bg-body-tertiary rounded'>

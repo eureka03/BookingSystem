@@ -27,6 +27,19 @@ app.get('/Bookings',(req,res)=>{
 
 });
 
+app.post('/SignUp',(req,res)=>{
+    const {Name,Email , Password} = req.body
+    db.query('INSERT into user_details VALUES(?,?,?)',[Name,Email,Password],(err,results)=>{
+        if(err) return res.status(500).json(err);
+        res.status(200).json({message:'Sign-Up Succesful'});
+    })
+
+});
+
 app.listen(5000,()=>{
     console.log('Server running on http://localhost:5000');
+<<<<<<< HEAD
+})
+=======
 });
+>>>>>>> 1b7be4d417444050550feb2483b0a64e12a84f22
