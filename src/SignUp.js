@@ -5,7 +5,7 @@ import './Signup.css';
 
 
 export default function SignUp(){
-    const initialData = {Name:"",Email:"",Password:""};
+    const initialData = {name:"",email:"",password:""};
     const [formData,setFormData] = useState(initialData);
     const [errors,setErrors] = useState({});
     

@@ -4,6 +4,8 @@ import {useState} from 'react';
 import './Login.css';
 
 export default function Login(){
+    const [loggedIn,setLoggedIn] = useState(false);
+
     const users = [
     {
         email:"eurekaripfumelo@gmail.com",
@@ -13,7 +15,9 @@ export default function Login(){
         email:"vonnyvonnie8@gmail.com",
         password:"Vonny2006"
     }
+
     ];
+    
     console.log(users);
     const initialData = {email:"",password:""};
     const [formData,setFormData] = useState(initialData);
@@ -24,6 +28,20 @@ export default function Login(){
 
     const handleSubmit = (e) =>{
         e.preventDefault();
+        if(e.target.email.value === '' || e.target.password.value === ''){
+            alert('Please fill in all fields');
+
+        }else{
+            const user = users.find(user => user.email === formData.email && user.password === formData.password);
+            if(user){
+                setLoggedIn(true);
+                setFormData(initialData);
+                
+            }else{
+                alert('Invalid email or password');
+
+            }
+        }
         
     }
 
