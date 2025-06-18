@@ -10,11 +10,15 @@ export default function Book(){
         setBookingData({...bookingData,[e.target.name]:e.target.value});
     }
 
+    const handleSubmit = (e) =>{
+        e.preventDefault();
+    }
+
     return(
         <div className=''>
             <div className='container align-items-center form-contain p-5 mt-3'>
                 <h1 className='text-center'>Make a booking</h1>
-                <form>
+                <form onSubmit={handleSubmit}>
                     <input type='text' name='fullname' value={bookingData.fullname} placeholder='FullName' onChange={handleChange}/>
                     
                     <label for='styles'>Select a style:</label>
@@ -27,7 +31,8 @@ export default function Book(){
                         <option name='pedicure'>Pedicure</option>
                     </select>
                     <input type='date'/>
-                    <button type='submit' className='btn btn-sm btn-success mt-4'>Book</button>
+                    <div className='col-3 mx-auto'><button type='submit' className='btn btn-primary mt-4'>Book</button></div>
+                    
                     
                 </form>
             </div>
