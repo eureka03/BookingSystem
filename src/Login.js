@@ -3,8 +3,8 @@ import {Link,useNavigate} from 'react-router-dom';
 import {useState} from 'react';
 import './Login.css';
 
-export default function Login(){
-    const [loggedIn,setLoggedIn] = useState(false);
+export default function Login({loggedIn,setLoggedIn}){
+    
 
     const navigate = useNavigate();
 

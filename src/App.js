@@ -6,15 +6,19 @@ import Login from './Login';
 import Bookings from './Bookings';
 import Book from './Book';
 import Navigation from './Navigation';
+import {useState} from 'react';
 
 function App() {
+
+  const [loggedIn,setLoggedIn] = useState(false);
+
   return (
     <HashRouter>
-      <Navigation/>
+      <Navigation loggedIn={loggedIn} setLoggedIn={setLoggedIn}/>
       <Routes>
         <Route path='/' element={<Homepage/>}/>
         <Route path='/SignUp' element={<SignUp/>}/>
-        <Route path='/Login' element={<Login/>}/>
+        <Route path='/Login' element={<Login loggedIn={loggedIn} setLoggedIn={setLoggedIn}/>}/>
         <Route path='/Bookings' element={<Bookings/>}/>
         <Route path='/Book' element={<Book/>}/>
       </Routes>
