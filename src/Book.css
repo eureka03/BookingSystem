@@ -1,0 +1,12 @@
+.form-contain{
+    height:500px;
+    width:70%;
+}
+.form-contain input{
+    background-color:linen;
+    
+}
+
+.form select{
+    margin-top:10px;
+}
