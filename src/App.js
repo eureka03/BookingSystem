@@ -11,14 +11,15 @@ import {useState} from 'react';
 function App() {
 
   const [loggedIn,setLoggedIn] = useState(false);
+  const [profile,setProfile] = useState('');
 
   return (
     <HashRouter>
-      <Navigation loggedIn={loggedIn} setLoggedIn={setLoggedIn}/>
+      <Navigation loggedIn={loggedIn} setLoggedIn={setLoggedIn} Profile={profile}/>
       <Routes>
         <Route path='/' element={<Homepage/>}/>
         <Route path='/SignUp' element={<SignUp/>}/>
-        <Route path='/Login' element={<Login loggedIn={loggedIn} setLoggedIn={setLoggedIn}/>}/>
+        <Route path='/Login' element={<Login loggedIn={loggedIn} setLoggedIn={setLoggedIn} setProfile={setProfile}/>}/>
         <Route path='/Bookings' element={<Bookings/>}/>
         <Route path='/Book' element={<Book/>}/>
       </Routes>

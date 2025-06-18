@@ -1,4 +1,4 @@
-import {Link,useNavigate} from 'react-router-dom';
+import {Link} from 'react-router-dom';
 import {useState} from 'react'
 import 'bootstrap/dist/css/bootstrap.css';
 import './Navigation.css';
@@ -10,11 +10,9 @@ import CalendarMonthIcon from '@mui/icons-material/CalendarMonth';
 import LogoutIcon from '@mui/icons-material/Logout';
 import ReviewsIcon from '@mui/icons-material/Reviews';
 
-export default function Navigation({loggedIn,setLoggedIn}){
+export default function Navigation({loggedIn,setLoggedIn,Profile}){
 
     const [open,setOpen] = useState(false);
-    const navigate = useNavigate();
-    
     const handleOpen = () => {
         setOpen(!open);
     }
@@ -36,7 +34,7 @@ export default function Navigation({loggedIn,setLoggedIn}){
                 <div className= 'navbar navstuff text-end bg-body-tertiary p-3 shadow' onClick={handleClose}>
                     <span><CloseIcon onClick={handleClose} /></span>
                     <Link to='/' className='d-block text-start text-start mb-2 mt-5'><HomeIcon/> Home</Link>
-                    <Link to='/profile' className='d-block text-start mb-2'><PersonOutlineIcon/>{loggedIn?<span>Eureka</span>:<span>Profile</span>}</Link>
+                    <Link to='/profile' className='d-block text-start mb-2'><PersonOutlineIcon/>{loggedIn?<span>{Profile}</span>:<span>Profile</span>}</Link>
                     <Link to='/Bookings' className='d-block text-start mb-2'><ListAltIcon/> Bookings</Link>
                     <Link to='/Book' className = 'd-block text-start mb-2'><CalendarMonthIcon/> Make a Booking</Link>
                     <Link to='/reviews' className='d-block text-start mb-2'><ReviewsIcon/> Reviews</Link>

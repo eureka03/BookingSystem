@@ -3,17 +3,19 @@ import {Link,useNavigate} from 'react-router-dom';
 import {useState} from 'react';
 import './Login.css';
 
-export default function Login({loggedIn,setLoggedIn}){
+export default function Login({loggedIn,setLoggedIn,setProfile}){
     
 
     const navigate = useNavigate();
 
     const users = [
     {
+        username:"Eureka",
         email:"eurekaripfumelo@gmail.com",
         password:"Eureka@031"
     },
     {
+        username:"Vonny",
         email:"vonnyvonnie8@gmail.com",
         password:"Vonny2006"
     }
@@ -37,6 +39,7 @@ export default function Login({loggedIn,setLoggedIn}){
             const user = users.find(user => user.email === formData.email && user.password === formData.password);
             if(user){
                 setLoggedIn(true);
+                setProfile(user.username);
                 navigate('/Book');
                 setFormData(initialData);
                 
