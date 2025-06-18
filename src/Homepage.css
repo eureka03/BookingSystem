@@ -4,9 +4,25 @@
     width:100%;
 
 }
-
 .Homepage{
     
-    height:97.3vh;
+    height:95.3vh;
+    display:flex;
     
+}
+.book{
+    width:30%;
+}
+.WelcomeText{
+    font-family:sans-serif;
+}
+
+#womanhair{
+    width:430px;
+}
+.welcome{
+    width:50%;
+}
+.image{
+    width:50%;
 }

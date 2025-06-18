@@ -31,7 +31,7 @@ export default function Navigation(){
           <nav className='mt-4 row justify-content-end'>
             <div className='navLinks row justify-content-end t-5 position-absolute '>
               {open && (
-                <div className= 'navbar navstuff text-end bg-body-tertiary p-3 shadow'>
+                <div className= 'navbar navstuff text-end bg-body-tertiary p-3 shadow' onClick={handleClose}>
                     <span><CloseIcon onClick={handleClose} /></span>
                     <Link to='/' className='d-block text-start text-start mb-2 mt-5'><HomeIcon/> Home</Link>
                     <Link to='/profile' className='d-block text-start mb-2'><PersonOutlineIcon/>Profile </Link>
