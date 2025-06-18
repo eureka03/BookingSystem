@@ -8,6 +8,21 @@ export default function SignUp(){
     const initialData = {name:"",email:"",password:""};
     const [formData,setFormData] = useState(initialData);
     const [errors,setErrors] = useState({});
+    const users = [
+    {
+        email:"eurekaripfumelo@gmail.com",
+        password:"Eureka@031"
+    },
+    {
+        email:"vonnyvonnie8@gmail.com",
+        password:"Vonny2006"
+    }
+
+    ];
+
+    const user = users.find(user=>user.email===formData.email);
+
+    
     
 
     const handleChange = (e)=>{
@@ -18,9 +33,6 @@ export default function SignUp(){
     async function handleSubmit(e){
         e.preventDefault();
         validateInputs();
-        if(Object.keys(errors).length===0){
-            setFormData(initialData);
-        }
     }
 
     function validateInputs(){
@@ -39,11 +51,15 @@ export default function SignUp(){
             validateErrors.password ='';
         }
 
-        if(formData.email.trim() === ''){
+        if(user){
+            validateErrors.email = 'Email Already exists';
+        }else if(formData.email.trim() === ''){
             validateErrors.email = 'Email is required';
         }else{
             validateErrors.email = '';
         }
+
+        
 
         setErrors(validateErrors);
     }

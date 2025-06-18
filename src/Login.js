@@ -1,10 +1,12 @@
 import 'bootstrap/dist/css/bootstrap.css';
-import {Link} from 'react-router-dom';
+import {Link,useNavigate} from 'react-router-dom';
 import {useState} from 'react';
 import './Login.css';
 
 export default function Login(){
     const [loggedIn,setLoggedIn] = useState(false);
+
+    const navigate = useNavigate();
 
     const users = [
     {
@@ -17,7 +19,7 @@ export default function Login(){
     }
 
     ];
-    
+
     console.log(users);
     const initialData = {email:"",password:""};
     const [formData,setFormData] = useState(initialData);
@@ -35,6 +37,7 @@ export default function Login(){
             const user = users.find(user => user.email === formData.email && user.password === formData.password);
             if(user){
                 setLoggedIn(true);
+                navigate('/Book');
                 setFormData(initialData);
                 
             }else{
