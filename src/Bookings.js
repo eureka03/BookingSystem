@@ -43,7 +43,7 @@ export default function Bookings(){
                                 {book.Status}
                             </div>
                         </div>
-                   )}                       
+                     )}                       
             </div>
         )
     }
