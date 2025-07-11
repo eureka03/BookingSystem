@@ -7,14 +7,14 @@ export default function Bookings(){
     const [bookings,setBookings] = useState([]);
 
     useEffect(() => {
-        fetch('http://localhost:5000/Bookings')
-          .then(res  => res.json())
-          .then(data => setBookings(data))
+        fetch('http://localhost:1000/Bookings')
+        .then(res => res.json())
+          .then(data=> setBookings(data.data))
           .catch(err => console.error(err));
       },[]);
 
 
-    if(bookings.length ===0){
+    if(bookings.length === 0){
         return(
             <div className='container'>
                 <h1 className='text-center'>No Bookings Found!</h1>
@@ -24,7 +24,7 @@ export default function Bookings(){
     }else{
         return (
             <div className='container pt-4'>
-                <h1 className='text-center mb-4'>Your Bookings</h1>
+                <h1 className='text-center mb-4'>Bookings</h1>
                 <div className='row justify-content-center Headings '>
                     <div className='col-md-3 text-bg-primary me-3 text-center'>FullName</div>
                     <div className='col-md-3 text-bg-primary me-3 text-center'>Date</div>
@@ -34,7 +34,7 @@ export default function Bookings(){
                     {bookings.map((book)=>
                         <div className='Bookings row justify-content-center'>
                             <div className='col-md-3 text-bg-info me-3 text-center mt-3'>
-                                {book.Name}
+                                {book.FullName}
                             </div>
                             <div className='col-md-3 text-bg-info me-3 text-center mt-3'>
                                 {book.Date}
