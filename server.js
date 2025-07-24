@@ -8,7 +8,7 @@ app.use(express.json());
 
 
 //Check authorization for Booking page
-function checkAuth(req,res,next){
+/*function checkAuth(req,res,next){
     const authHeader = req.headers.authorization;
     if(!authHeader || !authHeader.startsWith('Bearer ')){
         return res.status(401).json({'message':'unauthorized'}).end();;
@@ -18,7 +18,7 @@ function checkAuth(req,res,next){
             next();
         }
     }
-}
+}*/
 //Get Bookings data
 app.get('/Bookings',(req,res)=>{
     fs.readFile('Bookings.json', 'utf-8',(err,data)=>{
@@ -35,6 +35,28 @@ app.get('/Bookings',(req,res)=>{
             
         
 });
+
+app.post('/Bookings',(req,res)=>{
+    const newBooking = req.body;
+    fs.readFile('Bookings.json', 'utf-8',(err,data)=>{
+        if(err){
+            console.error('Error reading file:',err);
+            return res.status(500).json({message:'Internalc server error'}).end();
+        }else{
+            const bookings = JSON.parse(data);
+            bookings.push(newBooking);
+            fs.writeFile('Bookings.json',JSON.stringify(bookings,null,2),(err=>{
+                if(err){
+                    console.error('Error writing file:',err);
+                    return res.status(500).json({message:'Internal server error'}).end();
+                }
+                res.status(201).json({message:'Booking created successfully',data:newBooking}).end();
+                
+
+            }))
+        }
+    })
+})
 
 
 //Get Users data

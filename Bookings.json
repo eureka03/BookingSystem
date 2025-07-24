@@ -1,11 +1,19 @@
-[{
-    "FullName":"Eureka",
+[
+  {
+    "FullName": "Eureka",
     "Date": "2023-10-01",
-    "Status":"Confirmed"
-},
-{
-    "FullName":"Vonani",
-    "Date":"2023",
-    "Status":"Pending"
-}
+    "Status": "Confirmed"
+  },
+  {
+    "FullName": "Vonani",
+    "Date": "2023",
+    "Status": "Pending"
+  },
+  {
+    "initialdata": {
+      "fullname": "",
+      "date": ""
+    },
+    "FullName": "Eureka"
+  }
 ]

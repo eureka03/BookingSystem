@@ -31,7 +31,8 @@ export default function Bookings(){
                     <div className='col-md-3 text-bg-primary me-3 text-center'>Status</div>
                 </div>
                 
-                    {bookings.map((book)=>
+                    {
+                    bookings.map((book)=>
                         <div className='Bookings row justify-content-center'>
                             <div className='col-md-3 text-bg-info me-3 text-center mt-3'>
                                 {book.FullName}

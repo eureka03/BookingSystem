@@ -1,5 +1,5 @@
 import 'bootstrap/dist/css/bootstrap.css';
-import {useState} from 'react';
+import {useState,useEffect} from 'react';
 import './Book.css'
 
 export default function Book(){
@@ -7,19 +7,48 @@ export default function Book(){
     const [bookingData,setBookingData] = useState({initialdata});
 
     const handleChange =(e)=>{
-        setBookingData({...bookingData,[e.target.name]:e.target.value});
+        setBookingData({...bookingData,[e.target.name]:e.target.value });
+        
     }
+    async function fetchData(){
+            
+            fetch('http://localhost:1000/Bookings',{
+                method:'POST',
+                headers:{
+                    'Content-Type':'application/json'
+                }
+                ,body:JSON.stringify(bookingData)
 
+
+            })
+            .then(res=> res.json())
+            .then(data =>{
+                console.log(data);
+                setBookingData(initialdata);
+
+            })
+            .catch(err =>{
+                console.error('Error:',err);
+
+            })
+            
+        }
     const handleSubmit = (e) =>{
         e.preventDefault();
+        
+        fetchData();
     }
+    
+
+
+   
 
     return(
         <div className=''>
             <div className='container align-items-center form-contain p-5 mt-3'>
                 <h1 className='text-center'>Make a booking</h1>
                 <form onSubmit={handleSubmit}>
-                    <input type='text' name='fullname' value={bookingData.fullname} placeholder='FullName' onChange={handleChange}/>
+                    <input type='text' name='FullName' value={bookingData.fullname} placeholder='FullName' onChange={handleChange}/>
                     
                     <label for='styles'>Select a style:</label>
                     <select>
@@ -30,7 +59,7 @@ export default function Book(){
                         <option name='manicure'>Manicure</option>
                         <option name='pedicure'>Pedicure</option>
                     </select>
-                    <input type='date'/>
+                    <input name='Date' type='date'/>
                     <div className='col-3 mx-auto'><button type='submit' className='btn btn-primary mt-4'>Book</button></div>
                     
                     
