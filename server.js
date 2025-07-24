@@ -51,7 +51,7 @@ app.post('/Bookings',(req,res)=>{
                     return res.status(500).json({message:'Internal server error'}).end();
                 }
                 res.status(201).json({message:'Booking created successfully',data:newBooking}).end();
-                
+
 
             }))
         }
